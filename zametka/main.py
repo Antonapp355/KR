@@ -1,3 +1,3 @@
-import modul_menu
+import controller
 
-modul_menu.menu()
+controller.button_click()
