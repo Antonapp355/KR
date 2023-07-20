@@ -2,11 +2,10 @@ import json
 import view
 import controller
 import datetime
+import os.path
 
 def add_new_note_book():
-    y_or_n = input('\nВы действительно хотите создать новую книгу заметок? '
-                   '\nЭто удалит старую книгу. '
-                   '\n(Y/N)?: ')
+    y_or_n = view.warning_message()
     if y_or_n == 'y' or y_or_n == 'Y':
         data = [
             [
@@ -23,9 +22,25 @@ def add_new_note_book():
     elif y_or_n == 'n' or y_or_n == 'N':
         controller.button_click()
     else:
-        print("\033[31m {}" .format("\nНе верный ввод, повторите попытку!"))
-        print("\033[0m {}".format(" "))
+        view.exmessage_not_char()
         add_new_note_book()
 
 def add_note():
-    view.heading()
+    file = os.path.exists('note_books.json')
+    if file:
+        new_data =[{'ID': 1},
+               {'Heading': f'{view.heading()}'},
+               {'Body': f'{view.body()}'},
+               {'Date/Time': f'{datetime.datetime.now().date()}/{datetime.datetime.now().time().hour}'
+                             f':{datetime.datetime.now().time().minute}'
+                             f':{datetime.datetime.now().time().second}'}
+               ]
+        with open("note_books.json", "r", encoding='utf-8') as read_file:
+            data = list(json.load(read_file))
+
+        data.append(new_data)
+
+        with open('note_books.json', 'w', encoding='utf-8') as write_book:
+            write_book.write(json.dumps(data, ensure_ascii=False))
+    else:
+        view.exmessage_not_book()
