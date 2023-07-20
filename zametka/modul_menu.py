@@ -11,13 +11,14 @@ def menu_init(m):
 
 def menu_operation(m):
     if m == 1:
-        print('1.Добавить.')
+        print('1.Создать новую книгу заметок.')
+        modul_add.add_new_note_book()
     if m == 2:
-        print('2.Найти.')
+        print('2.Найти заметку.')
     if m == 3:
-        print('3.Редактировать.')
+        print('3.Редактировать заметку.')
     if m == 4:
-        print('4.Удалить.')
+        print('4.Удалить заметку.')
     if m == 5:
         print('5.Выход.')
         return modul_exit.m_exit()
