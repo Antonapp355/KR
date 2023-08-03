@@ -4,6 +4,7 @@ import modul_del
 import modul_exit
 import view
 import controller
+import modul_id
 
 number_menu = 0
 

@@ -3,6 +3,7 @@ import view
 import controller
 import datetime
 import os.path
+import modul_id
 
 def add_new_note_book():
     y_or_n = view.warning_message()
@@ -26,7 +27,7 @@ def add_new_note_book():
 def add_note():
     file = os.path.exists('note_books.json')
     if file:
-        new_data ={'ID': 1,
+        new_data ={'ID': modul_id.next_iD(),
                'Heading': f'{view.heading()}',
                'Body': f'{view.body()}',
                'Date/Time': f'{datetime.datetime.now().date()}/{datetime.datetime.now().time().hour}'
