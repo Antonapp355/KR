@@ -8,14 +8,12 @@ def add_new_note_book():
     y_or_n = view.warning_message()
     if y_or_n == 'y' or y_or_n == 'Y':
         data = [
-            [
-                {'ID': 0},
-                {'Heading': 'Заголовок'},
-                {'Body': 'Тело'},
-                {'Date/Time': f'{datetime.datetime.now().date()}/{datetime.datetime.now().time().hour}'
+                {'ID': 0,
+                'Heading': 'Заголовок',
+                'Body': 'Тело',
+                'Date/Time': f'{datetime.datetime.now().date()}/{datetime.datetime.now().time().hour}'
                               f':{datetime.datetime.now().time().minute}'
                               f':{datetime.datetime.now().time().second}'}
-            ]
         ]
         with open("note_books.json", "w", encoding='utf-8') as write_file:
             write_file.write(json.dumps(data, ensure_ascii=False))
@@ -28,13 +26,12 @@ def add_new_note_book():
 def add_note():
     file = os.path.exists('note_books.json')
     if file:
-        new_data =[{'ID': 1},
-               {'Heading': f'{view.heading()}'},
-               {'Body': f'{view.body()}'},
-               {'Date/Time': f'{datetime.datetime.now().date()}/{datetime.datetime.now().time().hour}'
+        new_data ={'ID': 1,
+               'Heading': f'{view.heading()}',
+               'Body': f'{view.body()}',
+               'Date/Time': f'{datetime.datetime.now().date()}/{datetime.datetime.now().time().hour}'
                              f':{datetime.datetime.now().time().minute}'
                              f':{datetime.datetime.now().time().second}'}
-               ]
         with open("note_books.json", "r", encoding='utf-8') as read_file:
             data = list(json.load(read_file))
 

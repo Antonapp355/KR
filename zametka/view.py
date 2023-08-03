@@ -16,6 +16,29 @@ def menu():
         else: return exmessage_not_char()
     except:exmessage_not_char()
 
+def search_menu():
+    print(' \n * * * * * * * * * * * * * * * * * *'
+          ' \n *                                 *'
+          ' \n * 1.По ID.                        *'
+          ' \n * 2.По названию.                  *'
+          ' \n * 3.Назад.                        *'
+          ' \n *                                 *'
+          ' \n *                                 *'
+          ' \n *                                 *'
+          ' \n *                                 *'
+          ' \n * * * * * * * * * * * * * * * * * *\n')
+    text = input('Введите номер операции: ')
+    try:
+        if int(text) > 0 and int(text) <= 3:
+            return int(text)
+        else:
+            return exmessage_not_char()
+    except:
+        exmessage_not_char()
+
+def search_id():
+    return input('Введите ID заметки: ')
+
 def warning_message():
     return input('Вы действительно хотите создать новую книгу заметок?'
                  '\nЭто удалит старую книгу.'
@@ -33,3 +56,8 @@ def exmessage_not_char():
 def exmessage_not_book():
     print("\033[31m {}".format('\nСоздайте книгу заметок.\n'),"\033[0m {}".format(" "))
     return input('Нажмите Enter для выхода в меню: ')
+
+def not_func():
+    print("\033[31m {}".format('\nЕще не сделано.\n'), "\033[0m {}".format(" "))
+    return input('Нажмите Enter для выхода в меню: ')
+

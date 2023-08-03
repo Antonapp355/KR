@@ -2,6 +2,8 @@ import modul_add
 import modul_search
 import modul_del
 import modul_exit
+import view
+import controller
 
 number_menu = 0
 
@@ -18,10 +20,15 @@ def menu_operation(m):
         modul_add.add_note()
     if m == 3:
         print('3.Найти заметку.')
+        number_search_menu = view.search_menu()
+        if number_search_menu == 1:
+            modul_search.search_id()
     if m == 4:
         print('4.Редактировать заметку.')
+        view.not_func()
     if m == 5:
         print('5.Удалить заметку.')
+        view.not_func()
     if m == 6:
         print('6.Выход.')
         return modul_exit.m_exit()
