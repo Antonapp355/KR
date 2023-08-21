@@ -5,6 +5,7 @@ import modul_exit
 import view
 import controller
 import modul_id
+import modul_show_all
 
 number_menu = 0
 
@@ -31,5 +32,8 @@ def menu_operation(m):
         print('5.Удалить заметку.')
         view.not_func()
     if m == 6:
-        print('6.Выход.')
+        print('6.Показать список заметок.')
+        modul_show_all.all()
+    if m == 7:
+        print('7.Выход.')
         return modul_exit.m_exit()

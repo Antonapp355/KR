@@ -13,4 +13,4 @@ def search_id():
                           f'\nТело заметки: {str(data[i]["Body"])}'
                           f'\nДата создания: {str(data[i]["Date/Time"])}')
     except:
-        print("\033[31m {}".format("\nДля начала создайте книгу заметок."),"\033[0m {}".format(" "))
+        view.exmessage_not_char()
